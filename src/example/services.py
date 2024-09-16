@@ -1,6 +1,6 @@
 from typing import List
 from sqlalchemy.orm import Session
-from src.example.models import Persona, Mascota
+from src.example.models import Persona, Mascota, Vehiculo
 from src.example import schemas, exceptions
 
 # operaciones CRUD para Personas
@@ -38,7 +38,6 @@ def eliminar_persona(db: Session, persona_id: int) -> Persona:
 
 # operaciones CRUD para Mascota
 
-
 def crear_mascota(db: Session, mascota: schemas.MascotaCreate) -> Mascota:
     return Mascota.create(db, mascota)
 
@@ -66,3 +65,30 @@ def eliminar_mascota(db: Session, mascota_id: int) -> Mascota:
     db_mascota = leer_mascota(mascota_id)
     db_mascota.delete(db)
     return db_mascota
+
+
+#Operaciones crud para Vehiculo
+def crear_vehiculo(db: Session, vehiculo: schemas.VehiculoCreate) -> Vehiculo:
+    return Vehiculo.create(db, patente=vehiculo.patente, marca=vehiculo.marca, modelo=vehiculo.modelo)
+
+
+def listar_vehiculos(db: Session) -> List[Vehiculo]:
+    return Vehiculo.get_all(db)
+
+
+def leer_vehiculo(db: Session, vehiculo_id:int) -> Vehiculo:
+    pass
+    
+def modificar_mascota():
+    pass
+
+def eliminar_mascota():
+    pass
+
+
+
+def leer_persona(db: Session, persona_id: int) -> Persona:
+    db_persona = Persona.get(db, persona_id)
+    if db_persona is None:
+        raise exceptions.PersonaNoEncontrada()
+    return db_persona

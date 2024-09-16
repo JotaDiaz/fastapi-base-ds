@@ -63,3 +63,26 @@ class Mascota(MascotaBase):
     nombre_tutor: str
 
     model_config = {"from_attributes": True}
+
+class VehiculoBase(BaseModel):
+    patente: str
+    marca: str
+    modelo: str
+
+class VehiculoCreate(VehiculoBase):
+    pass
+
+
+class VehiculoUpdate(VehiculoBase):
+    pass
+
+class Vehiculo(VehiculoBase):
+    id: int
+    fecha_creacion: datetime    
+
+    model_config = {"from_attributes": True}
+
+    
+    
+    
+    

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .galeria{
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 0 auto;
+            max-width: 80%;
+        }
+        .galeria div {
+            text-align: center;
+        }
+        img{
+            display: block;
+            margin: auto;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">IMAGENES</h1>
+    <div style="text-align: center; margin-bottom: 20px;">
+        <input type="text" id="imagenURL" placeholder="RUTA DE LA IMAGEN">
+        <input type="text" id="pieDeFoto" placeholder="PIE DE FOTO">
+        <button onclick="añadirImg()"> SUBIR IMAGEN</button>
+            
+
+    </div>
+    <div class="galeria" id="galeriaImg">
+        <div>
+            <img src="img/imagen2.jpeg" alt=" paisaje de playa "width="300" height="250"> 
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta odio mollitia suscipit, ab itaque eligendi consequatur facere expedita sed dolor. Praesentium saepe corrupti sequi laudantium incidunt officiis exercitationem nemo ratione?</p>           
+        </div>
+        <div>
+            <img src="img/paisaje1.jpeg" alt=" paisaje de playa "width="300" height="250"> 
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam quaerat dolorem ipsam, consequatur officiis omnis cumque odit rerum, quasi, soluta incidunt! Atque tempora impedit cupiditate repellat molestiae provident inventore veniam.</p>           
+        </div>
+        <div>
+            <img src="img/paisaje3.jpeg" alt=" paisaje de playa "width="300" height="250"> 
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis, perferendis, repellat error eveniet exercitationem corrupti dignissimos culpa porro magnam sit unde blanditiis quis, optio consequuntur corporis quaerat voluptates quo ipsum?</p>           
+        </div>
+        
+    </div>
+
+    <script>
+
+    function añadirImg() {
+        var url = document.getElementById("imagenURL").value;
+        var pie = document.getElementById("pieDeFoto").value;
+        var galeria= document.getElementById("galeriaImg");
+        var div = document.createElement("div");
+        var img = document.createElement("img");
+
+        img.src = url;
+
+        var p = document.createElement("p");
+
+        p.textContent=pie;
+        div.appendChild(img);
+        div.appendChild(p);
+        galeria.appendChild(div);
+
+    }
+
+
+    </script>
+</body>
+</html>

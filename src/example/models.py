@@ -47,3 +47,15 @@ class Mascota(BaseModel):
     @property
     def nombre_tutor(self):
         return self.tutor.nombre
+
+
+class Vehiculo(BaseModel):
+    __tablename__ = "vehiculos"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key = True, index= True)
+    patente: Mapped[str] = mapped_column(Integer, index= True)
+    marca: Mapped[str] = mapped_column(String,index=True)
+    modelo: Mapped[str] = mapped_column(String,index=True)
+    fecha_creacion: Mapped[datetime] = mapped_column(DateTime, default=lambda: datetime.now(UTC))
+    
+
